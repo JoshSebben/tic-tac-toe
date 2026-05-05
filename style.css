@@ -1,0 +1,78 @@
+@import url('https://googleapis.com');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 0;
+    background-color: grey;
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Outfit', Roboto;
+}
+
+#board{
+    display: grid;
+    height: 600px;
+    width: 600px;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.grid-item{
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+}
+
+#top-left{
+    border-top: 0px;
+    border-left: 0px;
+}
+
+#top-mid{
+    border-top: 0px;
+}
+
+#top-right{
+    border-top: 0px;
+    border-right: 0px;
+}
+
+#mid-left{
+    border-left: 0px;
+}
+
+#mid-right{
+    border-right: 0px;
+}
+
+#bottom-left{
+    border-bottom: 0px;
+    border-left: 0px;
+}
+
+#bottom-mid{
+    border-bottom: 0px;
+}
+
+#bottom-right{
+    border-bottom: 0px;
+    border-right: 0px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+}
+
+#start, #restart{
+    height: 40px;
+    width: 90px;
+    border: solid 2px black;
+    border-radius: 5px;
+    color: white;
+
+}
