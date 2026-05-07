@@ -10,7 +10,7 @@ body {
     background-color: grey;
     min-height: 100vh;
     width: 100%;
-    font-family: 'Outfit', Roboto;
+    font-family: 'Outfit', sans-serif;
 }
 
 #board{
@@ -74,5 +74,33 @@ body {
     border: solid 2px black;
     border-radius: 5px;
     color: white;
+}
 
+#start:active{
+    background-color: rgb(25, 119, 25);
+    translate: 2px 2px;
+}
+
+#restart:active{
+    background-color: rgb(126, 17, 17);
+    translate: 2px 2px;
+}
+
+#start{
+    background-color: rgb(30, 143, 30);
+}
+
+#restart{
+    background-color: rgb(158, 22, 22);
+}
+
+.grid-item button{
+    width: 200px;
+    height: 200px;
+    border-style: none;
+    background-color: transparent;
+}
+
+.grid-item button:hover{
+    background-color: rgb(97, 97, 97);
 }
