@@ -123,31 +123,98 @@ function createPlayer(name, score, team){
 
 const displayBoard = (() => {
     let playerOne = null;
-    let playerTwo = null;;
+    let playerTwo = null;
 
-    const addPlayer = (name, score, team) => {
-        name = prompt("Enter Name:");
-        team = prompt("Enter Team (X or O):");
+    const addPlayer = () => {
+        let name = prompt("Enter Name:");
+        let team = prompt("Enter Team (X or O):");
 
-        if (playerTwo == null){
+        if (playerOne == null){
             playerOne = createPlayer(name, 0 ,team);
         }
 
-        if (playerOne == null){
+        if (playerOne != null){
             playerTwo = createPlayer(name, 0, team);
         }
 
+        const div = document.createElement("div");
+        div.id = name;
+        div.innerHTML = name + ": " + team + ", " + score;
 
-        return player;
+        const element = document.getElementById("display");
+
+        element.appendChild(div);
     }
 
-    const placeX = () => {
-        // Put DOM logic here
+
+    const placeX = (array, event) => {
+        const container = event.target.parentElement;
+        array = gameBoard.array;
+
+        const imageX = document.createElement("img");
+        imageX.src = '/images/an-illustration-of-on-transparent-background-png.webp' // X image
+
+        document.container.appendChild(container);
+
+        if (container.id == "top-left") {array[0][0] == 1}
+            else if (container.id == "top-mid") {array[0][1] == 1}
+            else if (container.id == "top-right") {array[0][2] == 1};
+        
+        if (container.id == "mid-left") {array[1][0] == 1}
+            else if (container.id == "middle") {array[1][1] == 1}
+            else if (container.id == "mid-right") {array[1][2] == 1};
+
+        if (container.id == "bottom-left") {array[2][0] == 1}
+            else if (container.id == "bottom-mid") {array[2][1] == 1}
+            else if (container.id == "bottom-right") {array[2][2] == 1};
+
+        const button = event.target;
+        button.addEventListener('click', placeX);
     }
 
+    const placeO = (event) => {
+        const container = event.target.parentElement;
 
-    
+        const imageO = document.createElement("img");
+        imageO.src = '/images/circle-png-8.png' // O image
 
+        document.container.appendChild(container);
+
+        if (container.id == "top-left") {array[0][0] == 0}
+            else if (container.id == "top-mid") {array[0][1] == 0}
+            else if (container.id == "top-right") {array[0][2] == 0};
+        
+        if (container.id == "mid-left") {array[1][0] == 1}
+            else if (container.id == "middle") {array[1][1] == 0}
+            else if (container.id == "mid-right") {array[1][2] == 0};
+
+        if (container.id == "bottom-left") {array[2][0] == 1}
+            else if (container.id == "bottom-mid") {array[2][1] == 0}
+            else if (container.id == "bottom-right") {array[2][2] == 0};
+
+        const button = event.target;
+        button.addEventListener('click', placeO);
+    }
+
+    const startGame = () => {
+        addPlayer();
+        addPlayer();
+
+        const startButton = document.getElementById("start");
+        startButton.addEventListener('click', startGame);
+    }
+
+    const restartGame = () => {
+        document.querySelectorAll(".grid-item").forEach(element => {
+            const element = document.querySelector("img");
+            element.remove();
+        })
+
+        const restartButton = document.getElementById("restart");
+        restartButton.addEventListener('click', restartGame);
+    }
+
+    return {placeX, placeO, startGame, restartGame};
 })();
 
 
