@@ -88,10 +88,12 @@ body {
 
 #start{
     background-color: rgb(30, 143, 30);
+    font-weight: bold;
 }
 
 #restart{
     background-color: rgb(158, 22, 22);
+    font-weight: bold;
 }
 
 .grid-item button{
@@ -103,4 +105,22 @@ body {
 
 .grid-item button:hover{
     background-color: rgb(97, 97, 97);
+}
+
+#container{
+    display: flex;
+    gap: 90px
+}
+
+#display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    width: 300px;
+    background-color: rgb(119, 118, 118);
+    border: solid 3px black;
+    border-radius: 5px;
+    
+
 }
